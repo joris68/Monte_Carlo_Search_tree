@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/joris68/Monte_Carlo_Search_tree#readme",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "monte_carlo_search_tree": "file:"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
