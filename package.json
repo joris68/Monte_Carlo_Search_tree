@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/joris68/Monte_Carlo_Search_tree#readme",
   "dependencies": {
+    "drawille": "^2.0.2",
     "express": "^4.21.1",
     "monte_carlo_search_tree": "file:"
   },
