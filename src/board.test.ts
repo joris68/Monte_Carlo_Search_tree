@@ -4,15 +4,15 @@ import {updateBoardWithMoveBlack, initialBoardState, blackBearing} from './board
 describe('update the board functionality', () => {
 
      test('test update function', () => {
-         expect(JSON.stringify( updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[1,2]] ), [[2,1]]))).toBe(JSON.stringify(initialBoardState));
+         expect(JSON.stringify( updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[0,1]] ), [[1,0]]))).toBe(JSON.stringify(initialBoardState));
      });
 
      test('test update function', () => {
-          expect( JSON.stringify(updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[1,3]]), [[3,1]]))).toBe(JSON.stringify(initialBoardState));
+          expect( JSON.stringify(updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[0,2]]), [[2,0]]))).toBe(JSON.stringify(initialBoardState));
      });
 
      test('test update function', () => {
-          expect( JSON.stringify(updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[1,4]]), [[4,1]]))).toBe(JSON.stringify(initialBoardState));
+          expect( JSON.stringify(updateBoardWithMoveBlack(updateBoardWithMoveBlack(initialBoardState, [[0,3]]), [[3,0]]))).toBe(JSON.stringify(initialBoardState));
      });
 
 });
