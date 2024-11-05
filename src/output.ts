@@ -1,48 +1,42 @@
-import Drawille from 'drawille';
-import { off } from 'process';
+import Canvas from 'drawille';
+import { initialBoardState } from './board';
 
+// Initialize data object
+let data = {
+    counter: 0,
+    size: 40, // Starting size of the rectangle
+    growing: true, // Direction of growth
+};
 
-const canvas = new Drawille(100, 100);
+// Create a Drawille canvas (80x20 pixels for the console)
+const canvas = new Canvas(160, 80);
 
-const upperLine =86;
-const sideLine = 46;
-
-const offset = 0;
-
-function drawOutline(){
-
-
-    for (let x = 0 ; x < upperLine; x++){
-        canvas.set(offset+x, offset)
-    }
-
-    for (let x = 0 ; x < upperLine; x++){
-        canvas.set(offset +x , sideLine + offset);
-    }
-}
-
-function drawFields(){
-
-}
-
-function renderBoard() {
-    console.clear();
+function drawRectangle() {
+    // Clear the canvas for a fresh draw
     canvas.clear();
-    drawOutline();
 
-    // Move the cursor to the top-left of the console before rendering
-    process.stdout.write('\x1b[H');
+    const size = data.size;
+    const x = 50; // Starting x-coordinate for rectangle
+    const y = 5;  // Starting y-coordinate for rectangle
+
+    // Draw top and bottom sides of the rectangle
+    for (let i = 0; i < size; i++) {
+        canvas.set(x + i, y);           // Top side
+        canvas.set(x + i, y + size - 1); // Bottom side
+    }
+
+    // Draw left and right sides of the rectangle
+    for (let i = 0; i < size; i++) {
+        canvas.set(x, y + i);           // Left side
+        canvas.set(x + size - 1, y + i); // Right side
+    }
+
+    // Display the canvas in the console
+    console.clear();
     console.log(canvas.frame());
+
 }
 
-// Simulate background update (can update the board state here if needed)
-function updateState() {
-    // Example: move the line downwards each frame
-    // Add more logic here to make the board dynamic
-}
 
-// Main loop
-setInterval(() => {
-    updateState();
-    renderBoard();
-}, 1000);
+// Run the update every 200 milliseconds
+setInterval(drawRectangle(), 200);

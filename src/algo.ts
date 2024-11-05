@@ -1,3 +1,5 @@
+import {generateBlackMoves, board} from './board'
+
 
 function rollDice(): number [] {
      const roll1 = Math.floor(Math.random() * 6) + 1;
@@ -8,3 +10,17 @@ function rollDice(): number [] {
      return [roll1, roll2];
 }
 
+function uniFormDecision(moves : number [][][]){
+     const choice =  Math.floor(Math.random() * moves.length) +1;
+     return moves[choice];
+}
+
+function chooseUniformly(board : board ,  isBlack : boolean){
+     const dice = rollDice();
+     if(isBlack){
+          const blackMoves = generateBlackMoves(board, dice);
+
+     }else{
+          
+     }
+}
